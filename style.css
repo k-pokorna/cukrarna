@@ -9,27 +9,223 @@ html { box-sizing: border-box; }
 	- "pruh" s obsahem obsah je vycentrovaný na stránce
 	- všechny sekce mají nahoře a dole padding 80px
 	- kromě hlavičky a patičky, které mají jen 30px
-	- nadpisy jsou fontem Playfair Display, tučně
-	- veškerý další text na stránce fontem Lora
-	- výchozí velikost textu na stránce je 18px, řádkování 1.5
+	- nadpisy jsou fontem Playfair Display, tučně - SPLNĚNO
+	- veškerý další text na stránce fontem Lora - SPLNĚNO
+	- výchozí velikost textu na stránce je 18px, řádkování 1.5 - SPLNĚNO
 
-	Velikosti nadpisů:
+	Velikosti nadpisů:  - SPLNĚNO
 	h1 - 52px  (nadpis v horní Hero sekci s cupcakem)
 	h2 - 36px  (nadpisy v dalších sekcích)
 	h3 - 18px  (název produktu v Dnešní nabídce)
-	Nadpisy mají řádkování jen 1.25
+	Nadpisy mají řádkování jen 1.25   - SPLNĚNO
 
 	Barvy:
-	#f195b2		růžová - tlačítka a zvýraznění
-	#d2567d		tmavá růžová - hover/aktivní tlačítka
-	#3e606b		tmavá tyrkysová - na nadpisy
-	#242424		(skoro) černá - na běžný text
+	#f195b2		růžová - tlačítka a zvýraznění (pozn. použít na všechna tlačítka) - SPLNĚNO
+	#d2567d		tmavá růžová - hover/aktivní tlačítka - SPLNĚNO
+	#3e606b		tmavá tyrkysová - na nadpisy - SPLNĚNO
+	#242424		(skoro) černá - na běžný text - SPLNĚNO
 	#f0f0f0		světle šedé pozadí prostřední sekce
 	#303339		tmavé pozadí patičky
 */
 
-
+/* SPOLEČNÉ VLASTNOSTI PRVKŮ NA WEBU */
 body {
 	margin: 0;
+	font-family: 'Lora', serif;
+	font-size: 18px;
+	line-height: 1.5;
+	color: #242424;
+}
+
+/* Společné vlastnosti pro nadpisy */
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Playfair Display', serif;
+	line-height: 1.25;
+}
+
+h1 {
+	font-size: 52px;
+	margin-top: 0;
+}
+
+h2 {
+	font-size: 36px;
+	color: #3e606b;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+/* Společné vlastnosti pro tlačítka */
+.tlacitko {
+	background-color: #f195b2;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.tlacitko:hover {
+	background-color: #d2567d;
+}
+
+/* Společné vlastnosti pro sekce */
+/* PROBLÉM S VYTVOŘENÍM MEZERY 30px BEZ VLASTNOSTI GAP */
+.sekce {
+	display: flex;
+	/* justify-content: center; */
+	/* justify-content: space-between; */
+	/* margin: 0 auto; */
+	padding: 80px 0;
+}
+
+.obsah-sekce {
+	display: flex;
+	max-width: 1100px;
+	margin: 0 auto;
+	/* justify-content: space-between;
+	flex: 0 0 calc((100% - 30px) / 2); */
+	/* justify-content: space-between; */
+	gap: 30px;
+}
+
+.obsah-sekce img {
+	width: 100%;
+	border-radius: 5px;
+}
+
+/* Třída položka nefunguje správně, protože mi nějak nejde vytvořit tu mezeru s calc... prozatímně jsem využila vlastnost gap, která mi funguje */
+.polozka {
+	flex: 0 0 calc((100% - 30px) / 2);
+}
+
+
+/* HLAVIČKA */
+.hlavicka {
+	display: flex;
+	justify-content: space-between;
+	max-width: 1100px;
+	margin: 30px auto;
+}
+
+/* Logo */
+.logo {
+	width: 170px;
+}
+
+/* Menu */
+.menu ul {
+	list-style-type: none;
+	display: flex;
+	padding: 0;
+	margin: 0;
+}
+
+.menu a {
+	text-decoration: none;
+	color: #242424;
+	padding: 10px 15px;
+	border-radius: 20px;
+}
+
+/* Aby text-odkaz v tlačítku byl bílý */
+.menu .tlacitko {
+	color: #ffffff;
+}
+
+.menu ul li {
+	padding: 10px 15px;
+}
+
+.menu ul li:hover {
+	padding: 10px 15px;
+}
+
+/* BANNER A HERO SEKCE */
+.banner {
+	background-image: url(images/cupcake.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.hero {
+	color: #ffffff;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 80px 0;
+}
+
+.hero-text {
+	max-width: 60%;
+}
+
+.hero-text p {
+	font-style: italic;
+	font-size: 24px;
+}
+
+/* SEKCE VÍTEJTE */
+.tlacitko2 {
+	display: inline-block;
+	padding: 15px 40px;
+	border-radius: 30px;
+	margin-top: 30px;
+}
+
+
+/* SEKCE NABÍDKA S PRODUKTY */
+.nabidka {
+	background-color: #f0f0f0;
+	padding: 80px 0;
+}
+
+.obsah-sekce2 {
+	/* display: flex; */
+	max-width: 1100px;
+	margin: 0 auto;
+	/* justify-content: space-between;
+	flex: 0 0 calc((100% - 30px) / 2); */
+	/* justify-content: space-between; */
+	/* gap: 30px; */
+}
+
+.nabidka-text h2 {
+	margin-top: 0;
+}
+
+.nabidka-produkty {
+	display: flex;
+	gap: 30px;
+}
+
+.produkt {
+	background-color: #ffffff;
+	border-radius: 5px;
+	box-shadow: 1px 6px 8px rgb(0 0 0 / 0.1);
+}
+
+.produkt img {
+	border-radius: 5px 5px 0 0;
+	max-width: 100%;
+}
+
+.produkt-text {
+	padding: 20px;
+}
+
+/* SEKCE O PŘÍSTUPU K PEČENÍ */
+/* Místo flex-basis mi funguje width... */
+.pristup-polozka {
+	/* flex-basis: 0 0 50%; */
+	width: 50%;
+}
+
+/* PATIČKA */
+.paticka {
+	margin: 0;
+	padding: 30px 0;
+	text-align: center;
+	background-color: #303339;
+	color: white;
 }
 
