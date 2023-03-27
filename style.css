@@ -28,6 +28,7 @@ html { box-sizing: border-box; }
 	#303339		tmavé pozadí patičky
 */
 
+
 /* SPOLEČNÉ VLASTNOSTI PRVKŮ NA WEBU */
 body {
 	margin: 0;
@@ -36,6 +37,7 @@ body {
 	line-height: 1.5;
 	color: #242424;
 }
+
 
 /* Společné vlastnosti pro nadpisy */
 h1, h2, h3, h4, h5, h6 {
@@ -57,6 +59,7 @@ h3 {
 	font-size: 18px;
 }
 
+
 /* Společné vlastnosti pro tlačítka */
 .tlacitko {
 	background-color: #f195b2;
@@ -68,13 +71,16 @@ h3 {
 	background-color: #d2567d;
 }
 
+/* * přidáno podtržení ostatních tlačítek při :hover */
+.podtrzene-tlacitko:hover {
+	text-decoration: underline;
+	text-decoration-color: #f195b2;
+}
+
+
 /* Společné vlastnosti pro sekce */
-/* PROBLÉM S VYTVOŘENÍM MEZERY 30px BEZ VLASTNOSTI GAP */
 .sekce {
 	display: flex;
-	/* justify-content: center; */
-	/* justify-content: space-between; */
-	/* margin: 0 auto; */
 	padding: 80px 0;
 }
 
@@ -82,20 +88,12 @@ h3 {
 	display: flex;
 	max-width: 1100px;
 	margin: 0 auto;
-	/* justify-content: space-between;
-	flex: 0 0 calc((100% - 30px) / 2); */
-	/* justify-content: space-between; */
 	gap: 30px;
 }
 
 .obsah-sekce img {
 	width: 100%;
 	border-radius: 5px;
-}
-
-/* Třída položka nefunguje správně, protože mi nějak nejde vytvořit tu mezeru s calc... prozatímně jsem využila vlastnost gap, která mi funguje */
-.polozka {
-	flex: 0 0 calc((100% - 30px) / 2);
 }
 
 
@@ -136,9 +134,6 @@ h3 {
 	padding: 10px 15px;
 }
 
-.menu ul li:hover {
-	padding: 10px 15px;
-}
 
 /* BANNER A HERO SEKCE */
 .banner {
@@ -164,6 +159,7 @@ h3 {
 	font-size: 24px;
 }
 
+
 /* SEKCE VÍTEJTE */
 .tlacitko2 {
 	display: inline-block;
@@ -180,13 +176,8 @@ h3 {
 }
 
 .obsah-sekce2 {
-	/* display: flex; */
 	max-width: 1100px;
 	margin: 0 auto;
-	/* justify-content: space-between;
-	flex: 0 0 calc((100% - 30px) / 2); */
-	/* justify-content: space-between; */
-	/* gap: 30px; */
 }
 
 .nabidka-text h2 {
@@ -202,23 +193,57 @@ h3 {
 	background-color: #ffffff;
 	border-radius: 5px;
 	box-shadow: 1px 6px 8px rgb(0 0 0 / 0.1);
+	
 }
 
 .produkt img {
-	border-radius: 5px 5px 0 0;
 	max-width: 100%;
+}
+
+/* * vyřešena mezera pod obrázkem pomocí cover */
+.produkt-foto {
+	background-size: cover;
+	border-radius: 5px 5px 0 0;
+}
+
+.foto1 {
+	background-image: url(/images/dort.jpg);
+}
+
+.foto2 {
+	background-image: url(/images/livance.jpg);
+}
+
+.foto3 {
+	background-image: url(/images/kolac.jpg);
+}
+
+.foto4 {
+	background-image: url(/images/buchticka.jpg);
 }
 
 .produkt-text {
 	padding: 20px;
+	/* * text zarovnán na střed */
+	text-align: center;
 }
 
-/* SEKCE O PŘÍSTUPU K PEČENÍ */
-/* Místo flex-basis mi funguje width... */
-.pristup-polozka {
-	/* flex-basis: 0 0 50%; */
-	width: 50%;
+/* * odstraněn margin u textu produktů */
+.produkt-text h3 {
+	margin-top: 0;
 }
+
+.produkt-text p {
+	margin-bottom: 0;
+}
+
+
+/* SEKCE O PŘÍSTUPU K PEČENÍ */
+/* * opraveno flex-basis */
+.pristup-polozka {
+	flex-basis: 50%;
+}
+
 
 /* PATIČKA */
 .paticka {
